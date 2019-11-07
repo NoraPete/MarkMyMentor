@@ -1,6 +1,6 @@
 function getAverage(mentor) {
   let sumOfSkills = mentor.explanation + mentor.knowledge + mentor.helpfulness;
-  let avg = sumOfSkills / mentor.mark_sum;
+  let avg = (sumOfSkills / (mentor.mark_sum * 3)).toFixed(1);
   let response = {
     name: mentor.name,
     average: avg
@@ -26,6 +26,12 @@ function rank(mentors) {
   let toplist = [];
   while(editedList.length > 0) {
     toplist.push(getBest(editedList));
-    
+    editedList.splice(editedList.indexOf(getBest(editedList)), 1);
   }
+  for(let i = 0; i < toplist.length; i ++) {
+    toplist[i].rank = i + 1;
   }
+  return toplist;
+}
+
+module.exports = rank;

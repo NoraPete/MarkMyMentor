@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const askDatabase = require('./askDatabase');
+const rank = require('./rank');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -17,7 +18,7 @@ app.get('/top', function(req, res) {
   .then((result) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');
-    res.send(result);
+    res.send(rank(result));
   })
   .catch((err) => {
     console.log(err.message);
