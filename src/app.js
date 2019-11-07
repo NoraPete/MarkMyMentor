@@ -40,22 +40,22 @@ app.get('/mentors', function (req, res) {
     });
 });
 
-app.get('/profile/:id', function (req, res) {
-  res.sendFile('mentor_rating.html', { root: path.join(__dirname, '../views') })
-})
-
 app.get('/mentor/:id', function (req, res) {
   askDatabase('SELECT * FROM mentors WHERE id = ?', [req.params.id])
     .then((result) => {
+      return editMentorData(result[0]);
+    })
+    .then((result) => {
       res.status(200);
-      res.setHeader('Content-Type', 'application/json');
-      res.send(editMentorData(result[0]));
+      res.render('profile', { data: result });
     })
     .catch((err) => {
       console.log(err.message);
       res.sendStatus(500);
     });
 });
+
+
 
 app.put('/mentor/:id', function (req, res) {
   askDatabase(`UPDATE mentors SET 

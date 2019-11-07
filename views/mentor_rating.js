@@ -1,24 +1,31 @@
+'use strict';
 
-let span = document.querySelector('.name');
-let stack = document.querySelector('.stack');
-let theClass = document.querySelector('.theClass');
-let expl = document.querySelector('.expl');
-let know = document.querySelector('.know');
-let help = document.querySelector('.help');
+const name = document.querySelector('.name');
+const stack = document.querySelector('.stack');
+const clas = document.querySelector('.theClass');
+const expl = document.querySelector('.expl');
+const know = document.querySelector('.know');
+const help = document.querySelector('.help');
 
-
-window.onload = function loadData() {
-  console.log(window.location.pathname)
-  fetch(`http://localhost:3000/profile/:id`)
-    .then(response => response.json())
-    .then(response => {
-      span.textContent = response.name;
-      response.stack.forEach(element => {
-        stack.textContent += element + ' ';
-      });
-      theClass.textContent = response.class;
-      expl.textContent = response.explanation;
-      know.textContent = response.knowledge;
-      help.textContent = response.helpfulness;
-    })
+function renderData(resp) {
+  name.innerText = resp.name;
+  clas.innerText = resp.class;
+  expl.innerText = resp.explanation;
+  know.innerText = resp.knowledge;
+  help.innerText = resp.helpfulness;
+  stack.innerText = '';
+  resp.stack.forEach(function(tech) {
+    stack.innerText += tech;
+  });
 }
+
+fetch('/metor/:id')
+  .then((res) => {
+    if (res.status < 200 || res.status >= 300) {
+      return new Error('Something went wrong');
+    }
+    return res;
+  })
+  .then(response => response.json())
+  .then(renderData)
+  .catch(err => console.log(err.message))

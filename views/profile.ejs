@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <span class="name"></span>
-    <span class="stack"></span>
-    <span class="theClass"></span>
-    <span class="expl"></span>
-    <span class="know"></span>
-    <span class="help"></span>
+    <span class="name"><%=data.name%></span>
+    <span class="stack"><%=data.stack%></span>
+    <span class="theClass"><%=data.class%></span>
+    <span class="expl"><%=data.explanation%></span>
+    <span class="know"><%=data.knowledge%></span>
+    <span class="help"><%=data.helpfulness%></span>
     <button onclick="location.href = 'http://localhost:3000'"> back</button>
+    <button>Rate</button>
     <script src="mentor_rating.js"></script>
 </body>
 

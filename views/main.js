@@ -32,8 +32,8 @@ window.onload = function loadData() {
       });
     })
     .then(document.querySelector('.allMentors').addEventListener('click', function (e) {
-      window.location.replace(`http://localhost:3000/profile/${e.target.id}`)
-    }))
+      window.location.href = `/mentor/${e.target.id}`
+    }));
 }
 
 
