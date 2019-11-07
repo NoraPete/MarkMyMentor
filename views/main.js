@@ -15,7 +15,7 @@ window.onload = function loadData() {
         topMen.appendChild(liElem)
       });
     })
-    fetch('http://localhost:3000/mentors')
+  fetch('http://localhost:3000/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
@@ -25,6 +25,7 @@ window.onload = function loadData() {
         text.textContent = `${element.name}`;
         lidiv.appendChild(text);
         liElem.appendChild(lidiv);
+        liElem.setAttribute('id', `${element.id}`)
         allMen.appendChild(liElem);
       });
     })
