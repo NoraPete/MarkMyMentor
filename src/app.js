@@ -11,10 +11,11 @@ app.use(express.json());
 
 app.get('/', function(req, res) {
   res.sendFile('/index.html')
+  console.log('hello')
 });
 
 app.get('/top', function(req, res) {
-  askDatabase('SELECT name, explanation, knowledge, helpfulness, mark_sum FROM mentors', [])
+  askDatabase('SELECT name, explanation, knowledge, helpfulness, mark_sum FROM mentors LIMIT 4', [])
   .then((result) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');

@@ -18,6 +18,9 @@ form.addEventListener('submit', e => {
       explanation: form.explanation.value,
       knowledge: form.knowledge.value,
       helpfulness: form.helpfulness.value
-    })
-  })
+    }),
+    headers: {
+      'Content-type': 'application/json'
+    }
+  }).then(response => response.json())
 })
