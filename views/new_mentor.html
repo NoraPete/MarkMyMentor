@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add new mentor</title>
+</head>
+
+<body>
+    <form action="/send" method="POST">
+        <label for="name">Name of the mentor</label>
+        <input type="text" id="name" autofocus />
+        <label for="whichClass">Class</label>
+        <input type="text" id="whichClass" autofocus />
+        <label for="fullstack">Full Stack</label>
+        <input type="checkbox" name="Full stack" id="fullstack">
+        <label for="backend">Backend</label>
+        <input type="checkbox" name="Backend" id="backend">
+        <label for="devops">DevOps</label>
+        <input type="checkbox" name="DevOps" id="devops">
+        <label for="embedded">Embedded</label>
+        <input type="checkbox" name="Embedded" id="embedded">
+        <label for="explanation">Explanation</label>
+        <input type="number" name="Explanation" id="explanation" placeholder="1-5">
+        <label for="explanation">Knowledge</label>
+        <input type="number" name="Knowledge" id="knowledge" placeholder="1-5">
+        <label for="explanation">Helpfulness</label>
+        <input type="number" name="Helpfulness" id="helpfulness" placeholder="1-5">
+        <input type="submit" value="YipYip">
+    </form>
+</body>
+
+</html>
