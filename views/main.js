@@ -7,7 +7,6 @@ const allMen = document.querySelector('.allMentors')
 
 
 window.onload = function loadData() {
-  console.log('asd')
   fetch('top')
     .then(response => response.json())
     .then(response => {
@@ -18,7 +17,7 @@ window.onload = function loadData() {
       });
     })
 
-    fetch('http://localhost:3000/mentors')
+  fetch('http://localhost:3000/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
@@ -34,8 +33,9 @@ window.onload = function loadData() {
     })
 }
 
-
-document.querySelectorAll('div').addEventListener('click', test);
 const test = () => {
   console.log('asd')
 }
+
+let spanci = document.querySelectorAll('span')
+spanci.addEventListener('click', test);
