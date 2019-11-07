@@ -27,15 +27,13 @@ window.onload = function loadData() {
         text.textContent = `${element.name}`;
         lidiv.appendChild(text);
         liElem.appendChild(lidiv);
-        liElem.setAttribute('id', `${element.id}`)
+        text.setAttribute('id', `${element.id}`)
         allMen.appendChild(liElem);
       });
     })
+    .then(document.querySelector('.allMentors').addEventListener('click', function (e) {
+      window.location.replace(`http://localhost:3000/profile/${e.target.id}`)
+    }))
 }
 
-const test = () => {
-  console.log('asd')
-}
 
-let spanci = document.querySelectorAll('span')
-spanci.addEventListener('click', test);
