@@ -54,7 +54,27 @@ app.get('/mentor/:id', function(req, res) {
 });
 
 app.put('/mentor/:id', function(req, res) {
-
+  askDatabase(`UPDATE mentors SET 
+    explanation = explanation + ?,
+    knowledge = knowledge + ?,
+    helpfulness = helpfulness + ?,
+    mark_sum = mark_sum + 1
+    WHERE id = ?`,
+    [
+      req.body.explanation,
+      req.body.knowledge,
+      req.body.helpfulness,
+      req.params.id
+    ])
+  .then((result) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'application/json');
+    res.send({ message: 'Thanks for your feedback!' });
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.sendStatus(500);
+  });
 });
 
 app.post('/new', function(req, res) {
