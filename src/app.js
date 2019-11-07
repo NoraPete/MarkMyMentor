@@ -4,6 +4,7 @@ const path = require('path');
 const askDatabase = require('./askDatabase');
 const rank = require('./rank');
 const editMentorData = require('./editMentorData');
+const connection = require('./connection');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -22,7 +23,7 @@ app.get('/top', function (req, res) {
       res.send(rank(result));
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(1);
       res.sendStatus(500);
     })
 });
@@ -35,24 +36,26 @@ app.get('/mentors', function (req, res) {
       res.send(result);
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(2);
       res.sendStatus(500);
     });
 });
 
+app.get('/profile', function(req, res) {
+  res.sendFile(path.resolve('views/profile.html'));
+})
+
 app.get('/mentor/:id', function (req, res) {
   askDatabase('SELECT * FROM mentors WHERE id = ?', [req.params.id])
-    .then((result) => {
-      return editMentorData(result[0]);
-    })
-    .then((result) => {
-      res.status(200);
-      res.render('profile', { data: result });
-    })
-    .catch((err) => {
-      console.log(err.message);
-      res.sendStatus(500);
-    });
+  .then((result) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(editMentorData(result[0]));
+  })
+  .catch((err) => {
+    console.log(2);
+    res.sendStatus(500);
+  });
 });
 
 
@@ -76,7 +79,7 @@ app.put('/mentor/:id', function (req, res) {
       res.send({ message: 'Thanks for your feedback!' });
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(4);
       res.sendStatus(500);
     });
 });
@@ -111,7 +114,7 @@ app.post('/new', function (req, res) {
       res.send({ message: 'Thanks for the update!' });
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log(5);
       res.sendStatus(500);
     });
 });

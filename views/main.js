@@ -32,7 +32,7 @@ window.onload = function loadData() {
       });
     })
     .then(document.querySelector('.allMentors').addEventListener('click', function (e) {
-      window.location.href = `/mentor/${e.target.id}`
+      window.location.href = `/profile?id=${e.target.id}`
     }));
 }
 

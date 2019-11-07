@@ -11,7 +11,7 @@ function getAverage(mentor) {
 function getBest(editedMentorList) {
   let top = editedMentorList[0];
   for(let i = 0; i < editedMentorList.length; i ++) {
-    if(editedMentorList[i].average > top.average) {
+    if(parseInt(editedMentorList[i].average) > parseInt(top.average)) {
       top = editedMentorList[i]
     }
   }
@@ -31,6 +31,7 @@ function rank(mentors) {
   for(let i = 0; i < toplist.length; i ++) {
     toplist[i].rank = i + 1;
   }
+  console.log(toplist);
   if(toplist.length > 3) {
     toplist.splice(3);
   }
