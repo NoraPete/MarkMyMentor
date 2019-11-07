@@ -31,7 +31,6 @@ function rank(mentors) {
   for(let i = 0; i < toplist.length; i ++) {
     toplist[i].rank = i + 1;
   }
-  console.log(toplist);
   if(toplist.length > 3) {
     toplist.splice(3);
   }
