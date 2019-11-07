@@ -1,7 +1,10 @@
 'use strict'
 
-const top = document.querySelector('.topList');
-const allMen = document.querySelector('.allMentors');
+
+const topMen = document.querySelector('.topList');
+const allMen = document.querySelector('.allMentors')
+
+
 
 window.onload = function loadData() {
   console.log('asd')
@@ -14,7 +17,8 @@ window.onload = function loadData() {
         topMen.appendChild(liElem)
       });
     })
-  fetch('http://localhost:3000/mentors')
+
+    fetch('http://localhost:3000/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
@@ -29,6 +33,7 @@ window.onload = function loadData() {
       });
     })
 }
+
 
 document.querySelectorAll('div').addEventListener('click', test);
 const test = () => {
