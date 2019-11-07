@@ -1,8 +1,7 @@
 'use strict'
 
 const top = document.querySelector('.topList');
-const allMen = document.querySelector('.allMentors')
-
+const allMen = document.querySelector('.allMentors');
 
 window.onload = function loadData() {
   console.log('asd')
@@ -29,4 +28,9 @@ window.onload = function loadData() {
         allMen.appendChild(liElem);
       });
     })
+}
+
+document.querySelectorAll('div').addEventListener('click', test);
+const test = () => {
+  console.log('asd')
 }
