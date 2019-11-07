@@ -13,11 +13,20 @@ app.get('/', function(req, res) {
 });
 
 app.get('/top', function(req, res) {
-
+  askDatabase('SELECT name, explanation, knowledge, helpfulness, mark_sum FROM mentors', [])
+  .then((result) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(result);
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.sendStatus(500);
+  })
 });
 
 app.get('/mentors', function(req, res) {
-  askDatabase('SELECT * FROM mentors', [])
+  askDatabase('SELECT id, name FROM mentors', [])
   .then((result) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');
