@@ -1,10 +1,6 @@
-// get / -> index.html
+'use strict'
 
-// get /top ->  name
-
-// get/mentors -> id, name
-
-const top = document.querySelector('.topList');
+// const top = document.querySelector('.topList');
 const allMen = document.querySelector('.allMentors')
 
 
@@ -27,7 +23,7 @@ window.onload = function loadData() {
 }
 
 window.onload = function loadData() {
-  fetch('/mentors')
+  fetch('http://localhost:3000/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
