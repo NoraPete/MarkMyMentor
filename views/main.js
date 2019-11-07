@@ -12,7 +12,7 @@ window.onload = function loadData() {
     .then(response => {
       response.forEach(element => {
         let liElem = document.createElement('li');
-        liElem.textContent = `${element.name} ${element.rank} ${element.average}`
+        liElem.textContent = `${element.name}  ${element.average}  `
         topMen.appendChild(liElem)
       });
     })

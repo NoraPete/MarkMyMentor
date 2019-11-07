@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.get('/', function (req, res) {
   res.sendFile('/index.html')
+  console.log('hello')
 });
 
 app.get('/top', function (req, res) {
@@ -41,21 +42,21 @@ app.get('/mentors', function (req, res) {
     });
 });
 
-app.get('/profile', function(req, res) {
+app.get('/profile', function (req, res) {
   res.sendFile(path.resolve('views/profile.html'));
 })
 
 app.get('/mentor/:id', function (req, res) {
   askDatabase('SELECT * FROM mentors WHERE id = ?', [req.params.id])
-  .then((result) => {
-    res.status(200);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(editMentorData(result[0]));
-  })
-  .catch((err) => {
-    console.log(2);
-    res.sendStatus(500);
-  });
+    .then((result) => {
+      res.status(200);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(editMentorData(result[0]));
+    })
+    .catch((err) => {
+      console.log(2);
+      res.sendStatus(500);
+    });
 });
 
 

@@ -1,11 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add New Mentor</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="contact-clean">
+        <form action="/new" method="POST" class="yip">
+            <h2 class="text-center">Add new mentor</h2>
+            <div class="form-group"><input class="form-control" type="text" id="nick" placeholder="Name">
+            </div>
+            <div class="form-group"><input class="form-control" type="text" id="whichClass" name="whichClass"
+                    placeholder="Class"></div>
+            <div class="form-group"><input class="form-control" type="number" min="1" max="5" name="help" id="helpfulness"
+                    placeholder="Helpfulness"></div>
+            <div class="form-group"><input class="form-control" type="number" min="1" max="5" id="explanation" name="name"
+                    placeholder="Explanation"></div>
+            <input class="form-control" type="number" min="1" max="5" id="knowledge" name="name" placeholder="Knowledge">
+            <div class="form-group">
+                <div></div>
+            </div>
+            <div class="form-group">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="devops"><label
+                        class="form-check-label" for="formCheck-1" id="devops">DevOps</label></div>
+            </div>
+            <div class="form-group">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="embedded"><label
+                        class="form-check-label" for="formCheck-1" id="embedded"> Embedded</label></div>
+            </div>
+            <div class="form-group">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="fullstack"><label
+                    class="form-check-label" for="formCheck-1" id="fullstack">FullStack</label></div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label
+                        class="form-check-label" for="formCheck-1" id="backend">Backend</label></div>
+                    </div>
+                    <div class="form-group"><button onclick="location.href = 'http://localhost:3000'" class="btn btn-success" type="submit" value="YipYip">send </button></div>
+                    <button class="btn btn-danger" onclick="location.href = 'http://localhost:3000'"> back</button>
+        </form><img src="assets/img/5a8e9877a63d300001a1b1da_green_fox_logo_full.png">
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="new_mentor.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add new mentor</title>
+<link rel = "stylesheet" type="text/css" href="./assets/css/new.css">
 </head>
 
 <body>
@@ -30,9 +85,8 @@
         <input type="number" name="Helpfulness" required id="helpfulness" placeholder="1-5">
         <input type="submit" value="YipYip">
     </form>
-    <!-- <a href='./index.html'> Go back</a> -->
     <button onclick="location.href = 'http://localhost:3000'"> back</button>
     <script src="new_mentor.js"></script>
 </body>
 
-</html>
+</html>  -->

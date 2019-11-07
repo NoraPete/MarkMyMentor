@@ -2,7 +2,7 @@ const fullstack = document.getElementById('fullstack');
 const backend = document.getElementById('backend');
 const devops = document.getElementById('devops');
 const embedded = document.getElementById('embedded');
-const name = document.querySelector('.name');
+const name = document.getElementById('nick');
 const whichClass = document.getElementById('class');
 const expl = document.getElementById('explonation');
 const know = document.getElementById('knowledge');
@@ -29,12 +29,12 @@ if (send.embedded) {
 }
 
 send.addEventListener('submit', e => {
-  console.log(send.name.value)
+  console.log(send.nick.value)
   e.preventDefault();
   fetch('http://localhost:3000/new', {
     method: 'POST',
     body: JSON.stringify({
-      name: send.name.value,
+      name: send.nick.value,
       class: send.whichClass.value,
       fullstack: fstak,
       backend: bend,
