@@ -1,33 +1,23 @@
-// get / -> index.html
+'use strict'
 
-// get /top ->  name
 
-// get/mentors -> id, name
-
-const top = document.querySelector('.topList');
+const topMen = document.querySelector('.topList');
 const allMen = document.querySelector('.allMentors')
 
 
+
 window.onload = function loadData() {
-  fetch('/top')
+  fetch('top')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
-        // let name = document.createElement('span');
-        // let ranking = document.createElement('span');
-        // let average = document.createElement('span');
-        // name.textContent = element.name
-        // ranking.textContent = element.rank
-        // average.textContent = element.average
         let liElem = document.createElement('li');
         liElem.textContent = `${element.name} ${element.rank} ${element.average}`
-        top.appendChild(liElem)
+        topMen.appendChild(liElem)
       });
     })
-}
 
-window.onload = function loadData() {
-  fetch('/mentors')
+  fetch('http://localhost:3000/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
@@ -37,7 +27,13 @@ window.onload = function loadData() {
         text.textContent = `${element.name}`;
         lidiv.appendChild(text);
         liElem.appendChild(lidiv);
+        text.setAttribute('id', `${element.id}`)
         allMen.appendChild(liElem);
       });
     })
+    .then(document.querySelector('.allMentors').addEventListener('click', function (e) {
+      window.location.href = `/profile?id=${e.target.id}`
+    }));
 }
+
+
