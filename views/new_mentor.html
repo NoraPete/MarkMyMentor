@@ -63,9 +63,9 @@
 </head>
 
 <body>
-    <form action="/new" method="POST">
+    <form action="/new" method="POST" id="yip" class="yip">
         <label for="name">Name of the mentor</label>
-        <input type="text" id="name" autofocus required/>
+        <input type="text" id="name" required class="name"/>
         <label for="whichClass">Class</label>
         <input type="text" id="whichClass" required/>
         <label for="fullstack">Full Stack</label>
@@ -82,7 +82,7 @@
         <input type="number" name="Knowledge" required id="knowledge" placeholder="1-5">
         <label for="explanation">Helpfulness</label>
         <input type="number" name="Helpfulness" required id="helpfulness" placeholder="1-5">
-        <input type="submit" value="YipYip" id="yip">
+        <input type="submit" value="YipYip">
     </form>
     <a href='./index.html'> Go back</a>
     <button onclick="location.href = 'http://localhost:3000'"> back</button>
