@@ -133,6 +133,11 @@ h1 {
 }
 
 button {
-  width: 7%;
+  width: 5%;
   height: 30px;
+  margin-left: 90%
+}
+
+.p1 {
+  margin-left: 75%;
 }
