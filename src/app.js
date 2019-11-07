@@ -40,6 +40,10 @@ app.get('/mentors', function(req, res) {
   });
 });
 
+app.get('/profile/:id', function(req, res) {
+  res.sendFile('/mentor_rating.html');
+})
+
 app.get('/mentor/:id', function(req, res) {
   askDatabase('SELECT * FROM mentors WHERE id = ?', [req.params.id])
   .then((result) => {
