@@ -78,7 +78,16 @@ app.put('/mentor/:id', function(req, res) {
 });
 
 app.post('/new', function(req, res) {
-
+  askDatabase(`INSERT INTO mentors SET ?`, [req.body])
+  .then((result) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'application/json');
+    res.send({ message: 'Thanks for the update!' });
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.sendStatus(500);
+  });
 });
 
 module.exports = app;
