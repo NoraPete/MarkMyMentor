@@ -78,7 +78,29 @@ app.put('/mentor/:id', function(req, res) {
 });
 
 app.post('/new', function(req, res) {
-  askDatabase(`INSERT INTO mentors SET ?`, [req.body])
+  askDatabase(`INSERT INTO mentors
+  (name,
+  class,
+  fullstack,
+  backend,
+  devops,
+  embedded,
+  explanation,
+  knowledge,
+  helpfulness,
+  mark_sum)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)`,
+  [
+    req.body.name,
+    req.body.class,
+    req.body.fullstack,
+    req.body.backend,
+    req.body.devops,
+    req.body.embedded,
+    req.body.explanation,
+    req.body.knowledge,
+    req.body.helpfulness
+  ])
   .then((result) => {
     res.status(200);
     res.setHeader('Content-Type', 'application/json');
