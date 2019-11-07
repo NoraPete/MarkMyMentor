@@ -17,10 +17,11 @@
 
 .topList > li{
   font-weight: bold;
-  font-size: 30px;
+  font-size: 50px;
   vertical-align: middle;
   display: table-cell;
 }
+
 h2 {
   /* width: 10%; */
   margin: auto;
