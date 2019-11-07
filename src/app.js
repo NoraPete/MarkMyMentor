@@ -3,6 +3,7 @@ const path = require('path');
 
 const askDatabase = require('./askDatabase');
 const rank = require('./rank');
+const editMentorData = require('./editMentorData');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -40,7 +41,16 @@ app.get('/mentors', function(req, res) {
 });
 
 app.get('/mentor/:id', function(req, res) {
-
+  askDatabase('SELECT * FROM mentors WHERE id = ?', [req.params.id])
+  .then((result) => {
+    res.status(200);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(editMentorData(result[0]));
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res.sendStatus(500);
+  });
 });
 
 app.put('/mentor/:id', function(req, res) {
