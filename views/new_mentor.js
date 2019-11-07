@@ -41,7 +41,7 @@ send.addEventListener('submit', e => {
       console.log('Data sent')
       if (response.status === 200) {
         // goBack()
-        window.location.replace('index.html');
+        window.location.replace('http://localhost:3000');
       } else {
         alert(response.body.err)
       }
