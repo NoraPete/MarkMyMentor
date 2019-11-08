@@ -29,7 +29,6 @@ if (send.embedded) {
 }
 
 send.addEventListener('submit', e => {
-  console.log(send.nick.value)
   e.preventDefault();
   fetch('/new', {
     method: 'POST',
@@ -50,5 +49,6 @@ send.addEventListener('submit', e => {
   }).then(response => response.json())
     .then(response => {
       console.log('Data sent');
+      window.location.href = '/';
       });
 });
