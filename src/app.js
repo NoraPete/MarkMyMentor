@@ -4,7 +4,7 @@ const path = require('path');
 const askDatabase = require('./askDatabase');
 const rank = require('./rank');
 const editMentorData = require('./editMentorData');
-const connection = require('./connection');
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -13,7 +13,6 @@ app.use(express.json());
 
 app.get('/', function (req, res) {
   res.sendFile('/index.html')
-  console.log('hello')
 });
 
 app.get('/top', function (req, res) {
@@ -24,7 +23,7 @@ app.get('/top', function (req, res) {
       res.send(rank(result));
     })
     .catch((err) => {
-      console.log(1);
+      console.log(err.message);
       res.sendStatus(500);
     })
 });
@@ -37,7 +36,7 @@ app.get('/mentors', function (req, res) {
       res.send(result);
     })
     .catch((err) => {
-      console.log(2);
+      console.log(err.message);
       res.sendStatus(500);
     });
 });
@@ -54,7 +53,7 @@ app.get('/mentor/:id', function (req, res) {
       res.send(editMentorData(result[0]));
     })
     .catch((err) => {
-      console.log(2);
+      console.log(err.message);
       res.sendStatus(500);
     });
 });
@@ -80,7 +79,7 @@ app.put('/mentor/:id', function (req, res) {
       res.send({ message: 'Thanks for your feedback!' });
     })
     .catch((err) => {
-      console.log(4);
+      console.log(err.message);
       res.sendStatus(500);
     });
 });
@@ -115,7 +114,7 @@ app.post('/new', function (req, res) {
       res.send({ message: 'Thanks for the update!' });
     })
     .catch((err) => {
-      console.log(5);
+      console.log(err.message);
       res.sendStatus(500);
     });
 });

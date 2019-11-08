@@ -7,7 +7,7 @@ const allMen = document.querySelector('.allMentors')
 
 
 window.onload = function loadData() {
-  fetch('top')
+  fetch('/top')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
@@ -17,7 +17,7 @@ window.onload = function loadData() {
       });
     })
 
-  fetch('http://localhost:3000/mentors')
+  fetch('/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {

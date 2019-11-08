@@ -3,9 +3,9 @@ function editMentorData(mentor) {
     name: mentor.name,
     class: mentor.class,
     stack: [],
-    explanation: parseInt(mentor.explanation) / parseInt(mentor.mark_sum),
-    knowledge: parseInt(mentor.knowledge) / parseInt(mentor.mark_sum),
-    helpfulness: parseInt(mentor.helpfulness) / parseInt(mentor.mark_sum)
+    explanation: (parseInt(mentor.explanation) / parseInt(mentor.mark_sum)).toFixed(1),
+    knowledge: (parseInt(mentor.knowledge) / parseInt(mentor.mark_sum)).toFixed(1),
+    helpfulness: (parseInt(mentor.helpfulness) / parseInt(mentor.mark_sum)).toFixed(1)
   };
   if(parseInt(mentor.fullstack) === 1) {
     editedData.stack.push('Fullstack');
