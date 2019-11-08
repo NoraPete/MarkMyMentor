@@ -29,9 +29,8 @@ if (send.embedded) {
 }
 
 send.addEventListener('submit', e => {
-  console.log(send.nick.value)
   e.preventDefault();
-  fetch('http://localhost:3000/new', {
+  fetch('/new', {
     method: 'POST',
     body: JSON.stringify({
       name: send.nick.value,
@@ -48,14 +47,8 @@ send.addEventListener('submit', e => {
       'Content-type': 'application/json'
     }
   }).then(response => response.json())
-    // console.log(response)
     .then(response => {
       console.log('Data sent');
-      if (response.status === 200) {
-        // goBack()
-        // window.location.replace('http://localhost:3000');
-      } else {
-        // alert(response.body.err)
-      }
-    })
-})
+      window.location.href = '/';
+      });
+});
