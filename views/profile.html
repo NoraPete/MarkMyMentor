@@ -4,25 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
     <span class="name"></span>
     <span class="stack"></span>
     <span class="theClass"></span>
-    <span class="expl"></span>
-    <span class="know"></span>
-    <span class="help"></span>
-    <form>
-      <label for="explanation">Explanation</label>
-        <input type="number" name="Explanation" id="explanation" placeholder="1-5">
-        <label for="explanation">Knowledge</label>
-        <input type="number" name="Knowledge" id="knowledge" placeholder="1-5">
-        <label for="explanation">Helpfulness</label>
-        <input type="number" name="Helpfulness" id="helpfulness" placeholder="1-5">
-        <input type="submit" value="YipYip">
-    </form>
-    <button onclick="location.href = 'http://localhost:3000'"> back</button>
+    <p class="expl">Explanation</p>
+    <p class="know"></p>
+    <p class="help"></p>
+        <div class="register-photo">
+        <div class="form-container">
+        <div class="image-holder"></div>
+        <form method="post">
+        <h2 class="text-center"><strong>Skills</strong></h2>
+        <div class="form-group"><input class="form-control" min="1" max="5" type="number" name="Explanation" id="explanation" placeholder="1-5"></div>
+        <div class="form-group"><input class="form-control" min="1" max="5" type="number" name="Knowledge" id="knowledge" placeholder="1-5"></div>
+        <div class="form-group"><input class="form-control" min="1" max="5" type="number" name="Helpfulness" id="helpfulness" placeholder="1-5"></div>
+        <div class="form-group"><button class="btn btn-success btn-block" value="YipYip" type="submit">Send</button></div>
+        </form>
   <script src="profile.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
