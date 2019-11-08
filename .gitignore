@@ -3,4 +3,4 @@ node_modules/
 .terraform/
 var.tf
 terraform.tfstate
-terraform.tfstse.backup
+terraform.tfstate.backup
