@@ -2,7 +2,7 @@ const fullstack = document.getElementById('fullstack');
 const backend = document.getElementById('backend');
 const devops = document.getElementById('devops');
 const embedded = document.getElementById('embedded');
-const name = document.querySelector('.name');
+const name = document.getElementById('nick');
 const whichClass = document.getElementById('class');
 const expl = document.getElementById('explonation');
 const know = document.getElementById('knowledge');
@@ -29,12 +29,11 @@ if (send.embedded) {
 }
 
 send.addEventListener('submit', e => {
-  console.log(send.name.value)
   e.preventDefault();
-  fetch('http://localhost:3000/new', {
+  fetch('/new', {
     method: 'POST',
     body: JSON.stringify({
-      name: send.name.value,
+      name: send.nick.value,
       class: send.whichClass.value,
       fullstack: fstak,
       backend: bend,
@@ -48,14 +47,8 @@ send.addEventListener('submit', e => {
       'Content-type': 'application/json'
     }
   }).then(response => response.json())
-    // console.log(response)
     .then(response => {
       console.log('Data sent');
-      if (response.status === 200) {
-        // goBack()
-        // window.location.replace('http://localhost:3000');
-      } else {
-        // alert(response.body.err)
-      }
-    })
-})
+      window.location.href = '/';
+      });
+});

@@ -12,10 +12,10 @@ let id = window.location.search.slice(4);
 
 function renderData(resp) {
   name.innerText = resp.name;
-  clas.innerText = resp.class;
-  expl.innerText = resp.explanation;
-  know.innerText = resp.knowledge;
-  help.innerText = resp.helpfulness;
+  clas.innerText = 'Class: '  + resp.class;
+  expl.innerText = 'Explanation: ' + resp.explanation;
+  know.innerText = 'Knowledge: ' + resp.knowledge;
+  help.innerText = 'Helpfulness: ' + resp.helpfulness;
   resp.stack.forEach(function(tech) {
     let newTech = document.createElement('p');
     newTech.innerText = tech;

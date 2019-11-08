@@ -1,4 +1,7 @@
 node_modules/
 .env
-var.tf
 .terraform/
+var.tf
+terraform.tfstate
+terraform.tfstate.backup
+

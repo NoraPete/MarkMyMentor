@@ -7,17 +7,17 @@ const allMen = document.querySelector('.allMentors')
 
 
 window.onload = function loadData() {
-  fetch('top')
+  fetch('/top')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
         let liElem = document.createElement('li');
-        liElem.textContent = `${element.name} ${element.rank} ${element.average}`
+        liElem.textContent = `${element.name}  ${element.average}  `
         topMen.appendChild(liElem)
       });
     })
 
-  fetch('http://localhost:3000/mentors')
+  fetch('/mentors')
     .then(response => response.json())
     .then(response => {
       response.forEach(element => {
